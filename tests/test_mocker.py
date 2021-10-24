@@ -1,4 +1,5 @@
 from unittest import TestCase
+
 from unittest_mock import activate_mocker
 
 
@@ -18,8 +19,8 @@ class MockerTestCase(TestCase):
 
     @activate_mocker
     def test_patch_without_object(self, mocker):
-        """Call `mocker.patch()` instead of `mocker.patch.object` works to."""
-        mocker.patch('test_mocker.Dummy.dummy_func', return_value=2)
+        """Call `mocker.patch()` instead of `mocker.patch.object` works too."""
+        mocker.patch('tests.test_mocker.Dummy.dummy_func', return_value=2)
 
         assert Dummy().dummy_func() == 2
 
