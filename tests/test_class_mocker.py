@@ -41,7 +41,7 @@ class ClassMockerTestCase(TestCase):
 
         cls = DummyClass()
 
-        assert cls.some_method(some_method_param=1) == 'some_method_mocked'
+        assert cls.some_method(some_method_param=1) == 'some_method_mocked'  # type: ignore
         assert cls.some_other_method(some_other_method_param=2) == 'some_other_method_mocked'
         dummy_mock.mocks['some_method'].assert_called_once_with(some_method_param=1)
         dummy_mock.mocks['some_other_method'].assert_called_once_with(some_other_method_param=2)
@@ -53,7 +53,7 @@ class ClassMockerTestCase(TestCase):
 
         cls = DummyClass()
 
-        assert cls.some_method(some_method_param=1) == 'some_method_mocked'
+        assert cls.some_method(some_method_param=1) == 'some_method_mocked'  # type: ignore
         dummy_mock.mocks['some_method'].assert_called_once_with(some_method_param=1)
 
     @activate_mocker
@@ -73,7 +73,6 @@ class ClassMockerTestCase(TestCase):
     def assert_method_is_mocked(self, dummy_mock, method_name):
         self.assertIsInstance(getattr(DummyClass, method_name), MagicMock)
         assert method_name in dummy_mock.mocks
-
 
 
 class ClassMockerValidationTestCase(TestCase):

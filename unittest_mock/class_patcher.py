@@ -1,3 +1,4 @@
+from __future__ import annotations
 import inspect
 from typing import Iterable
 from unittest.mock import MagicMock, patch

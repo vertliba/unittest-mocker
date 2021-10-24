@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from functools import wraps
-from typing import Protocol, Generic, TypeVar, Callable, Any
+from typing import Generic, TypeVar, Callable, Any
 from unittest.mock import patch
 
 from unittest_mock.class_patcher import ClassPatcher
@@ -11,7 +11,7 @@ from unittest_mock.standart_patcher import standard_patcher
 def _dot_lookup(thing, comp, import_path):
     try:
         return getattr(thing, comp)
-    except AttributeError:
+    except AttributeError:  # pragma: no cover
         __import__(import_path)
         return getattr(thing, comp)
 
@@ -30,7 +30,7 @@ def _importer(target):
 def _get_target(target):
     try:
         target, attribute = target.rsplit('.', 1)
-    except (TypeError, ValueError):
+    except (TypeError, ValueError):  # pragma: no cover
         raise TypeError("Need a valid target to patch. You supplied: %r" %
                         (target,))
     return _importer(target), attribute
@@ -53,10 +53,6 @@ class _SegregatePatcher(Generic[T]):
     def object(self, target, attribute, *args, **kwargs) -> T:
         return self._patcher(target, attribute, *args, **kwargs)
 
-    def get_full_path(self, attribute, target):
-        target = f'{target.__module__}.{target.__qualname__}.{attribute}'
-        return target
-
 
 class Mocker:
     def __init__(self):
@@ -71,11 +67,7 @@ class Mocker:
         return _SegregatePatcher(patcher=ClassPatcher)
 
 
-class DecoratedTest(Protocol):
-    def __call__(self, *args: Any, mocker: Mocker, **kwargs: Any) -> None: ...
-
-
-def activate_mocker(test_func: DecoratedTest):
+def activate_mocker(test_func):
     @wraps(test_func)
     def wrapper(*args, **kwargs):
         _mocker = Mocker()
