@@ -1,2 +1,2 @@
 [run]
-source=unittest_mock
+source=unittest_mocker

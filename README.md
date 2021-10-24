@@ -1,9 +1,9 @@
-Unittest-mock
+unittest-mocker
 ==================
 
-![build](https://github.com/vertliba/unittest-mock/workflows/build/badge.svg?branch=master)
-[![codecov](https://codecov.io/gh/vertliba/unittest-mock/branch/master/graph/badge.svg)](https://codecov.io/gh/vertliba/unittest-mock)
-[![PyPI version](https://badge.fury.io/py/unittest-mock.svg)](https://badge.fury.io/py/unittest-mock)
+![build](https://github.com/vertliba/unittest-mocker/workflows/build/badge.svg?branch=master)
+[![codecov](https://codecov.io/gh/vertliba/unittest-mocker/branch/master/graph/badge.svg)](https://codecov.io/gh/vertliba/unittest-mocker)
+[![PyPI version](https://badge.fury.io/py/unittest-mocker.svg)](https://badge.fury.io/py/unittest-mocker)
 
 Inspired by the [pytest-mock](https://github.com/pytest-dev/pytest-mock), but written from scratch for using with
 unittest and convenient tool - [**Class mocker**](#Class-mocker)
@@ -12,7 +12,7 @@ Installation
 ------------
 
 ```shell script
-pip install unittest-mock
+pip install unittest-mocker
 ```
 
 Usage
@@ -66,7 +66,7 @@ The same with `mocker.patch.object`. It has the same parameters as`unittest.mock
 Basic usage:
 
 ```python
-from unittest_mock import activate_mocker, Mocker
+from unittest_mocker import activate_mocker, Mocker
 from api import ApiClient
 
 @activate_mocker

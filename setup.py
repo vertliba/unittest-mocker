@@ -8,7 +8,7 @@ with open('README.md') as f:
     long_description = f.read()
 
 version_re = re.compile('^Version: (.+)$', re.M)
-package_name = 'unittest-mock'
+package_name = 'unittest-mocker'
 
 
 def get_version():
@@ -62,8 +62,8 @@ setup(
     version=get_version() or 'dev',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    packages=['unittest_mock'],
-    url='https://github.com/vertliba/unittest-mock',
+    packages=['unittest_mocker'],
+    url='https://github.com/vertliba/unittest-mocker',
     license='MIT',
     author='Slava Vertliba',
     author_email='vertliba.vv@gmail.com',

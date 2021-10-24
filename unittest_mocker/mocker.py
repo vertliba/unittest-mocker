@@ -4,8 +4,8 @@ from functools import wraps
 from typing import Generic, TypeVar, Callable, Any
 from unittest.mock import patch
 
-from unittest_mock.class_patcher import ClassPatcher
-from unittest_mock.standart_patcher import standard_patcher
+from unittest_mocker.class_patcher import ClassPatcher
+from unittest_mocker.standart_patcher import standard_patcher
 
 
 def _dot_lookup(thing, comp, import_path):

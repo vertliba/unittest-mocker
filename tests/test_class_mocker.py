@@ -3,7 +3,7 @@ from unittest.mock import MagicMock
 
 import tests.dummy_class as dummy_class
 from tests.dummy_class import DummyClass
-from unittest_mock import Mocker, activate_mocker
+from unittest_mocker import Mocker, activate_mocker
 
 
 class ClassMockerTestCase(TestCase):

@@ -1,7 +1,7 @@
 from unittest import TestCase
 
 from tests.dummy_class import DummyClass
-from unittest_mock import activate_mocker
+from unittest_mocker import activate_mocker
 
 
 class MockerTestCase(TestCase):
