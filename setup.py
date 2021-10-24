@@ -73,7 +73,9 @@ setup(
     ],
     classifiers=[
         'Development Status :: 4 - Beta',
-        "Framework :: Unittest",
+        "Topic :: Software Development :: Testing",
+        "Topic :: Software Development :: Testing :: Unit",
+        "Topic :: Software Development :: Testing :: Mocking",
         "Intended Audience :: Developers",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
@@ -83,6 +85,5 @@ setup(
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3 :: Only",
-        "Topic :: Software Development :: Testing",
     ]
 )
