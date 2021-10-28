@@ -6,7 +6,7 @@ unittest-mocker
 [![PyPI version](https://badge.fury.io/py/unittest-mocker.svg)](https://badge.fury.io/py/unittest-mocker)
 
 Inspired by the [pytest-mock](https://github.com/pytest-dev/pytest-mock), but written from scratch for using with
-unittest and convenient tool - [**Class mocker**](#Class-mocker)
+unittest and convenient tool - [**patch_class**](#Class-mocker)
 
 Installation
 ------------
@@ -61,7 +61,7 @@ So you can apply any arguments of [the standard mock library](https://docs.pytho
 The same with `mocker.patch.object`. It has the same parameters as`unittest.mock.patch.object`
 
 
-### Class mocker
+### Method `patch_class` 
 
 Basic usage:
 
@@ -75,7 +75,7 @@ def test_api_client(self, mocker: Mocker):
 
     ApiClient(url='example.com')(command='start')
     
-    client_mock.test_initialized_with(url='example.com')
+    client_mock.assert_initialized_with(url='example.com')
     client_mock.mocks['__call__'].assert_called_once_with(command='start')
 ```
 
@@ -96,7 +96,7 @@ mock = mocker.patch_class(some_module, 'SomeClass', methods=['method_1', 'method
 
 All mocked methods are stored in `mock.mocks` dictionary and can be accessed:
 ```python
-mock['__init__'].assert_called_once_with(...)
+mock.mocks['__init__'].assert_called_once_with(...)
 ```
 
 `patch_class` always patches class's `__init__` method. 
@@ -109,6 +109,6 @@ mock = mocker.patch_class('some_module.SomeClass')
 mock.mocks['__call__'].assert_called_once_with(...)
 ```
 
-#### Helper `test_initialized_with`
+#### Helper `assert_initialized_with`
 
-mock.test_initialized_with() is just shortcut for `mock['__init__'].assert_called_once_with()`
+`mock.assert_initialized_with()` is just shortcut for `mock.mocks['__init__'].assert_called_once_with()`
